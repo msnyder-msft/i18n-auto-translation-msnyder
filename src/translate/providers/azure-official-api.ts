@@ -49,14 +49,12 @@ export class AzureOfficialAPI extends Translate {
 
   private callApi = async (toTranslate: string): Promise<string> => {
     try {
-      console.log(`Fetching result for value: ${toTranslate}`);
       const result = await axios.post(
         `https://${AzureOfficialAPI.endpoint}/translate`,
         [{ text: encode(toTranslate) }],
         AzureOfficialAPI.axiosConfig
       );
       let value = decode((result as AzureTranslateResponse).data[0].translations[0].text);
-      console.log(`Got result: ${value}`);
       // fix bug where the strings come back with an extra space in the delimiter sometimes
       value = replaceAll(value, '| *|', Translate.sentenceDelimiter);
       return value;
