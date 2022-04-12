@@ -36,6 +36,9 @@ export class AzureOfficialAPI extends Translate {
     saveTo: string
   ): Promise<void> => {
     let output = '';
+    console.log(
+      `Start fetching translations using '${argv.apiProvider}' to translate from '${argv.from}' to '${argv.to}'`
+    );
     for (let i = 0; i < valuesForTranslation.length; i++) {
       const toTranslate = valuesForTranslation[i];
       // eslint-disable-next-line no-await-in-loop
@@ -45,6 +48,7 @@ export class AzureOfficialAPI extends Translate {
     const index = output.lastIndexOf(Translate.sentenceDelimiter);
     output = output.substring(0, index);
     this.saveTranslation(output, originalObject, saveTo);
+    console.log(`Finished translating from '${argv.from}' to '${argv.to}'`);
   };
 
   private callApi = async (toTranslate: string): Promise<string> => {
