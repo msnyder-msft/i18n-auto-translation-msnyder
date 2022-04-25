@@ -45,19 +45,19 @@ i18n-auto-translation helps you translate your JSON internationalization files. 
 You can install package globally on your machine:
 
 ```bash
-$ npm i -g i18n-auto-translation
+$ npm i -g i18n-auto-translation-msnyder
 ```
 
 Or save it as dev dependency in your project:
 
 ```bash
-$ npm i -D i18n-auto-translation
+$ npm i -D i18n-auto-translation-msnyder
 ```
 
 ## Usage
 
 ```bash
-$ i18n-auto-translation -k SUBSCRIPTION_KEY -d PROJECT_DIR -t DESIRED_LANGUAGE
+$ i18n-auto-translation-msnyder -k SUBSCRIPTION_KEY -d PROJECT_DIR -t DESIRED_LANGUAGE
 ```
 
 ### Options
